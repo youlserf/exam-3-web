@@ -20,6 +20,8 @@ Aquí se podía ver el diseño de las páginas de las películas:
 
 ### Consideraciones
 
+* [Enlance de Sketch](https://www.sketch.com/s/849aaa1e-79f2-4ab7-b5a3-ba0ccd309806) a la página de películas.
+* Endpoint de la API: <https://static.rviewer.io/challenges/datasets/dreadful-cherry-tomatoes/data.json>
 * Pueden usar CSS o SASS para el diseño.
 * Pueden usar bootstrap o cualquier otro framework de CSS.
 * Ek tide entrega es de 3 horas
