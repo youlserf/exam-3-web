@@ -1,33 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { useEffect, useState } from 'react'
+import { get } from './service/serverTomatoes'
 import './App.css'
+import CardTomatoes from './components/CardTomatoes'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [movies, setMovies] = useState([])
+
+ const getMovies = async () => {
+  const pelis = await get();
+      setMovies(pelis?.entries);
+      console.log(movies)
+ }
+
+    useEffect(() => {
+      getMovies()
+    }, []);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <>
+      <div className="container">
+        <div className="row">
+          {movies?.map(movie => <CardTomatoes key={Date.now()} movie={movie}/>)}
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    </>
   )
 }
 
