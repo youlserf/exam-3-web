@@ -41,25 +41,36 @@ function App() {
 
   return (
     <>
-      <div className="container">
-        <div>
-          FindTomatoes
+      <div
+        className="bg-dark p-1 col-12"
+        style={{
+          borderRadius: "25px",
+        }}
+      >
+        <div
+          className="mt-4 p-4"
+          style={{
+            width: "100%",
+            backgroundColor: "red",
+          }}
+        >
           <form className="row" onSubmit={enviarDatos}>
-            <div className="col-md-3">
+            <div className="col-8">
               <input
                 type="text"
                 placeholder="Nombre"
                 className="form-control"
+                placeHolder="Name of movie"
                 onChange={handleInputChange}
                 name="nombre"
               />
             </div>
-            <button type="submit" className="btn btn-primary">
-              Enviar
+            <button type="submit" className="btn btn-dark col-4">
+              Buscar
             </button>
           </form>
         </div>
-        <div className="row justify-content-center p-4">
+        <div className="row justify-content-center p-1">
           {movies?.map((movie, index) => (
             <CardTomatoes key={index} movie={movie} />
           ))}

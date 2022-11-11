@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 const CardTomatoes = ({ movie }) => {
   const [isHover, setIsHover] = useState(false);
 
@@ -13,8 +12,11 @@ const CardTomatoes = ({ movie }) => {
   return (
     <>
       <div
-        className="card col-4"
-        styles={{ width: "18rem" }}
+        className="card col-sm-8 col-md-4 col-lg-2 p-1 m-1"
+        styles={{
+          width: "18rem",
+          backgroundColor: "dark",
+        }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -26,11 +28,7 @@ const CardTomatoes = ({ movie }) => {
         <div className="card-body">
           {isHover ? (
             <div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-              </ul>
+              <p style={{ fontSize: 12 }}>{movie.description}</p>
             </div>
           ) : (
             <div></div>
